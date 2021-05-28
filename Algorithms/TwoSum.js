@@ -21,3 +21,6 @@ function twoSum(array, target) {
   }
   return []
 }
+
+//solution 2
+
