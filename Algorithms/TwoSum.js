@@ -4,8 +4,11 @@ Two Number Sum
 Find any two numbers in the array that sums up to the target sum
 */
 
+
+
+
 //solution 1
-function twoSum(array, target) {
+function twoSum(array, targetSum) {
   array.sort((a, b) => a - b);
   let left = 0;
   let right = array.length - 1;
@@ -16,7 +19,7 @@ function twoSum(array, target) {
     } else if (currentSum < targetSum) {
       left++;
     } else if (currentSum > targetSum) {
-      right++;
+      right--;
     }
   }
   return []
@@ -40,14 +43,14 @@ function twoNumberSum(array, targetSum) {
 //solution 3
 function twoNumberSum(array, targetSum) {
   // Write your code here.
-	const nums = {}
-	for (const num of array) {
-		const potentialMatch = targetSum - num;
-		if (potentialMatch in nums) {
-			return [potentialMatch, num]
-			} else {
-				nums[num] = true
-		}
-	}
-	return []
+	let memo = {};
+  for (let i = 0; i < array.length; i++) {
+    let num = array[i];
+    if (memo[targetSum - num]) {
+      return [num, (targetSum - num)]
+    } else {
+      memo[num] = true
+    }
+  }
+  return []
 }
