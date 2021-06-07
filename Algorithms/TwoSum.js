@@ -7,7 +7,7 @@ Find any two numbers in the array that sums up to the target sum
 
 
 
-//solution 1
+//solution 1**
 function twoSum(array, targetSum) {
   array.sort((a, b) => a - b);
   let left = 0;
@@ -25,7 +25,7 @@ function twoSum(array, targetSum) {
   return []
 }
 
-//solution 2
+//solution 2*
 function twoNumberSum(array, targetSum) {
   // Write your code here.
 	for (let i = 0; i < array.length - 1; i++) {
@@ -40,7 +40,9 @@ function twoNumberSum(array, targetSum) {
 	return []
 }
 
-//solution 3
+
+
+//solution 3***
 function twoNumberSum(array, targetSum) {
   // Write your code here.
 	let memo = {};
@@ -54,3 +56,4 @@ function twoNumberSum(array, targetSum) {
   }
   return []
 }
+
