@@ -24,3 +24,29 @@ function runLengthEncoding(string) {
 	return encodedStringChar.join('')
 }
 
+//solution 2
+function runLengthEncoding(string) {
+  // Write your code here.
+	let result = ''
+	let count = 0
+	let placeholder = string[0]
+	for (let i = 0; i < string.length + 1; i++) {
+		if (count === 9) {
+			result += `9${placeholder}`
+			placeholder = string[i]
+			count = 1
+		} else {
+			if (placeholder === string[i] && result.length - 2 !== '9') {
+				placeholder = string[i]
+				count++
+			}
+			if ( i !== 0 && placeholder !== string[i]) {
+			result += `${count}${placeholder}`
+			placeholder = string[i]
+			count = 1
+			}
+		}
+	}
+	return result
+}
+
