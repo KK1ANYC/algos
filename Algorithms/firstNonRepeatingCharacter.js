@@ -1,0 +1,3 @@
+//firstNonRepeatingCharacter
+
+//solution 1
