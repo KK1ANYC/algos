@@ -11,3 +11,9 @@ return lastEl += reverseString
 console.log(reverse('awesome')) // 'emosewa'
 console.log(reverse('rithmschool')) // 'loohcsmhtir'
 
+//palindrome
+function palindrome(string) {
+
+}
+
+console.log(palindrome("tacocat")) // true
