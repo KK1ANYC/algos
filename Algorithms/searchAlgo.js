@@ -26,3 +26,26 @@ function binarySearch(nums, target) {
 
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 2));
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 7));
+
+//naive search
+function stringSearch(string, target) {
+  let totalCount = 0;
+  let count = 0;
+  for (let i = 0; i < string.length; i++) {
+    for (let j = 0; j < target.length; j++) {
+      let cj = target[j];
+      if (cj !== string[i + j]) {
+        count = 0;
+        break;
+      }
+      if (cj === string[i + j]) {
+        count++;
+      }
+      if (count === target.length) {
+        totalCount++;
+        count = 0;
+      }
+    }
+  }
+  return totalCount;
+}
