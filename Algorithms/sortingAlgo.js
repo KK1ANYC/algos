@@ -46,3 +46,7 @@ function bubbleSort(array) {
 }
 
 console.log(bubbleSort([15, 10, 3, 1, 4, 7, 5]));
+
+
+//selection sort
+
