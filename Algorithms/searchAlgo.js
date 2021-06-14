@@ -3,19 +3,22 @@
 function binarySearch(nums, target) {
   let start = 0;
   let end = nums.length - 1;
-  let midPoint = Math.floor((end + start) / 2);
+  let mid = Math.floor((end + start) / 2);
   while (end - start > 1) {
-    if (nums[midPoint] !== target) {
-      if (nums[midPoint] < target) {
-        start = midPoint;
-        midPoint = Math.floor((end + start) / 2);
-      }
-      if (nums[midPoint] > target) {
-        end = midPoint;
-        midPoint = Math.floor((end + start) / 2);
-      }
-    } else {
-      return midPoint;
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[start] === target) {
+      return start;
+    } else if (nums[end] === target) {
+      return end;
+    }
+    if (target > nums[mid]) {
+      start = mid;
+      mid = Math.floor((end + start) / 2);
+    }
+    if (target < nums[mid]) {
+      end = mid;
+      mid = Math.floor((end + start) / 2);
     }
   }
   return -1;
