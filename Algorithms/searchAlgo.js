@@ -27,7 +27,7 @@ function binarySearch(nums, target) {
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 2));
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 7));
 
-//naive search
+//naive search 1
 function stringSearch(string, target) {
   let totalCount = 0;
   let count = 0;
@@ -49,3 +49,16 @@ function stringSearch(string, target) {
   }
   return totalCount;
 }
+
+// naive search 2
+function stringSearch(string, target) {
+	let totalCount = 0;
+	for (let i = 0; i < string.length; i++) {
+	  for (let j = 0; j < target.length; j++) {
+	    let cj = target[j];
+	    if (cj !== string[i + j]) break;
+	    if (j === target.length - 1) totalCount++;
+	  }
+	}
+	return totalCount;
+      }
