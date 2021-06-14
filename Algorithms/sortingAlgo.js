@@ -47,6 +47,27 @@ function bubbleSort(array) {
 
 console.log(bubbleSort([15, 10, 3, 1, 4, 7, 5]));
 
-
 //selection sort
 
+//example 1
+function selectionSort(arr) {
+  let smallest;
+  let index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    smallest = arr[i];
+    for (let j = i; j < arr.length; j++) {
+      if (arr[j] < smallest) {
+        index = j;
+        smallest = arr[j];
+      }
+    }
+    if (smallest < arr[i]) {
+      let temp = arr[i];
+      arr[i] = arr[index];
+      arr[index] = temp;
+    }
+  }
+  return arr;
+}
+
+console.log(selectionSort([15, 10, 3, 1, 4, 7, 5]));
