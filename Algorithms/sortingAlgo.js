@@ -119,3 +119,6 @@ function insertionSort(arr) {
 }
 
 console.log(insertionSort([15, 10, 3, 1, 4, 7, 5]));
+
+//Merge sort
+
