@@ -121,4 +121,26 @@ function insertionSort(arr) {
 console.log(insertionSort([15, 10, 3, 1, 4, 7, 5]));
 
 //Merge sort
+function merge(arr1, arr2) {
+  let short;
+  let long;
+  arr1.length > arr2.length ? (short = arr2) : (short = arr1);
+  arr1.length > arr2.length ? (long = arr1) : (long = arr2);
+  let p = 0;
+  let result = [];
+  while (p < short.length) {
+    if (arr1[p] < arr2[p]) {
+      result.push(arr1[p]);
+      result.push(arr2[p]);
+      p++;
+    } else {
+      result.push(arr2[p]);
+      result.push(arr1[p]);
+      p++;
+    }
+  }
+  let remainder = long.slice(p);
+  return [...result, ...remainder];
+}
 
+console.log(merge([1, 3, 6, 8], [2, 4, 5, 7, 9]));
