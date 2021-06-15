@@ -158,4 +158,7 @@ const merge = ([arr1, arr2]) => {
   return result;
 };
 
+//example 3
+
+
 console.log(merge([1, 3, 6, 8], [2, 4, 5, 7, 9]));
