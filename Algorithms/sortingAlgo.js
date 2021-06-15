@@ -201,3 +201,29 @@ const mergeSort = (arr) => {
 };
 
 console.log(merge([1, 3, 6, 8], [2, 4, 5, 7, 9]));
+
+//quickSort
+function pivot(arr, start = 0, end = arr.length + 1) {
+  function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  let pivot = arr[start];
+  let swapIndex = 0;
+  for (let i = start + 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      swapIndex++;
+      swap(arr, swapIndex, i);
+    }
+  }
+  swap(arr, start, swapIndex);
+  return swapIndex;
+}
+
+console.log(pivot([5, 7, 4, 6, 8, 2, 1, 3])); // 4
+function swap(arr, i, j) {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
