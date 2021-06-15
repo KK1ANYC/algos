@@ -91,6 +91,7 @@ function selectionSort(arr) {
 console.log(selectionSort([15, 10, 3, 1, 4, 7, 5]));
 
 //Insertion Sort
+//example 1
 function insertionSort(arr) {
   for (var i = 1; i < arr.length; i++) {
     var currentVal = arr[i];
@@ -101,3 +102,20 @@ function insertionSort(arr) {
   }
   return arr;
 }
+
+//example 2
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < arr[i - 1]) {
+      for (let j = 0; j < i; j++) {
+        if (arr[i] < arr[j]) {
+          arr.splice(j, 0, arr[i]);
+          arr.splice(i + 1, 1);
+        }
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(insertionSort([15, 10, 3, 1, 4, 7, 5]));
