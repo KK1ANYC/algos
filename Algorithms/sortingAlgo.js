@@ -159,6 +159,50 @@ const merge = ([arr1, arr2]) => {
 };
 
 //example 3
+const split = (wholeArr) => {
+  // YOUR CODE HERE
+  let first = [];
+  let second = [];
+  if (wholeArr.length % 2 === 0) {
+    first = wholeArr.slice(0, wholeArr.length / 2);
+    second = wholeArr.slice(wholeArr.length / 2);
+  } else {
+    first = wholeArr.slice(0, Math.ceil(wholeArr.length / 2));
+    second = wholeArr.slice(Math.ceil(wholeArr.length / 2));
+  }
+  return [first, second];
+};
+
+const merge = (arr1, arr2) => {
+  // YOUR CODE HERE
+  let finalArr = [];
+  while (arr1.length > 0 && arr2.length > 0) {
+    if (arr1[0] < arr2[0]) {
+      finalArr.push(arr1[0]);
+      arr1.shift();
+    } else {
+      finalArr.push(arr2[0]);
+      arr2.shift();
+    }
+  }
+  if (arr1.length > 0 && arr2.length === 0) {
+    finalArr = [...finalArr, ...arr1];
+  }
+  if (arr2.length > 0 && arr1.length === 0) {
+    finalArr = [...finalArr, ...arr2];
+  }
+  return finalArr;
+};
+
+const mergeSort = (arr) => {
+  if (arr.length === 0 || arr.length === 1) {
+    return arr;
+  }
+  let splitArr = split(arr);
+  let leftArr = mergeSort(splitArr[0]);
+  let rightArr = mergeSort(splitArr[1]);
+  return merge(leftArr, rightArr);
+};
 
 
 console.log(merge([1, 3, 6, 8], [2, 4, 5, 7, 9]));
