@@ -122,27 +122,28 @@ console.log(insertionSort([15, 10, 3, 1, 4, 7, 5]));
 
 //Merge sort
 //example 1
-function merge(arr1, arr2) {
-  let short;
-  let long;
-  arr1.length > arr2.length ? (short = arr2) : (short = arr1);
-  arr1.length > arr2.length ? (long = arr1) : (long = arr2);
-  let p = 0;
-  let result = [];
-  while (p < short.length) {
-    if (arr1[p] < arr2[p]) {
-      result.push(arr1[p]);
-      result.push(arr2[p]);
-      p++;
+const merge = (arr1, arr2) => {
+  // YOUR CODE HERE
+  let finalArr = [];
+  let p1 = 0;
+  let p2 = 0;
+  while (p1 < arr1.length || p2 < arr2.length) {
+    if (arr1[p1] < arr2[p2]) {
+      finalArr.push(arr1[p1]);
+      p1++;
     } else {
-      result.push(arr2[p]);
-      result.push(arr1[p]);
-      p++;
+      finalArr.push(arr2[p2]);
+      p2++;
     }
   }
-  let remainder = long.slice(p);
-  return [...result, ...remainder];
-}
+  if (p1 > p2) {
+    finalArr = [...finalArr, ...arr1.slice(p1)];
+  }
+  if (p2 > p1) {
+    finalArr = [...finalArr, ...arr2.slice(p2)];
+  }
+  return finalArr;
+};
 
 //example 2
 const merge = ([arr1, arr2]) => {
@@ -203,6 +204,5 @@ const mergeSort = (arr) => {
   let rightArr = mergeSort(splitArr[1]);
   return merge(leftArr, rightArr);
 };
-
 
 console.log(merge([1, 3, 6, 8], [2, 4, 5, 7, 9]));
