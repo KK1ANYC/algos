@@ -258,13 +258,7 @@ const radixSort = (arr) => {
         radixArr[0].push(curr);
       }
     }
-    arr = [];
-    for (let k = 0; k < radixArr.length; k++) {
-      let indexArr = radixArr[k];
-      while (indexArr.length) {
-        arr.push(indexArr.shift());
-      }
-    }
+    arr = [].concat(...radixArr)
   }
   return arr;
 };
