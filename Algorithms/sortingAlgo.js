@@ -164,13 +164,8 @@ const split = (wholeArr) => {
   // YOUR CODE HERE
   let first = [];
   let second = [];
-  if (wholeArr.length % 2 === 0) {
-    first = wholeArr.slice(0, wholeArr.length / 2);
-    second = wholeArr.slice(wholeArr.length / 2);
-  } else {
-    first = wholeArr.slice(0, Math.ceil(wholeArr.length / 2));
-    second = wholeArr.slice(Math.ceil(wholeArr.length / 2));
-  }
+  first = wholeArr.slice(0, Math.ceil(wholeArr.length / 2));
+  second = wholeArr.slice(Math.ceil(wholeArr.length / 2));
   return [first, second];
 };
 
