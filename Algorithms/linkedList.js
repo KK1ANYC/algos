@@ -72,18 +72,14 @@ class singlyLinkedList {
   }
 
   get(index) {
-    if (
-      !this.head ||
-      index > this.length ||
-      index < 0 ||
-      typeof index !== "number"
-    )
-      return null;
-    let currentNode = this.head;
-    for (let i = 0; i <= index - 1; i++) {
-      currentNode = currentNode.next;
+    if (index < 0 || index >= this.length) return null
+    var counter = 0
+    var current = this.head
+    while (counter !== index) {
+	    current = current.next
+	    counter++
     }
-    return currentNode;
+    return current
   }
 
   set(val, index) {
