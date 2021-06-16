@@ -83,20 +83,23 @@ class singlyLinkedList {
     for (let i = 0; i <= index - 1; i++) {
       currentNode = currentNode.next;
     }
-    return currentNode.val;
+    return currentNode;
   }
 
-  set(val, i) {
-    if (!this.head || i > this.length || i < 0 || typeof i !== "number")
+  set(val, index) {
+    if (
+      !this.head ||
+      index > this.length ||
+      index < 0 ||
+      typeof index !== "number"
+    )
       return null;
-    let counter = 0;
-    let currentNode = this.head;
-    while (counter !== i) {
-      currentNode = currentNode.next;
-      counter++;
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
     }
-    currentNode.val = val;
-    return currentNode;
+    return false;
   }
 }
 
