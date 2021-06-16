@@ -32,16 +32,18 @@ class singlyLinkedList {
       this.head = null;
       this.tail = null;
       this.length--;
-      return this
+      return this;
     } else {
       let currentNode = this.head;
-      while (currentNode.next.next) {
+      let newTail = currentNode;
+      while (currentNode.next) {
+        newTail = currentNode;
         currentNode = currentNode.next;
       }
-      this.tail = currentNode;
-      currentNode.next = null;
+      this.tail = newTail;
+      this.tail.next = null;
       this.length--;
-      return this
+      return this;
     }
   }
 }
