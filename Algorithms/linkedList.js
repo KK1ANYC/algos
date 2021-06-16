@@ -115,6 +115,22 @@ class singlyLinkedList {
     this.length--;
     return true;
   }
+
+  reverse() {
+    let current = this.head;
+    this.head = this.tail;
+    this.tail = current;
+    let next;
+    let prev = null;
+    // for (let i = 0; i < this.length; i++){
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    // }
+  }
 }
 
 let list = new singlyLinkedList();
