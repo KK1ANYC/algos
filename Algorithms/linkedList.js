@@ -85,6 +85,19 @@ class singlyLinkedList {
     }
     return currentNode.val;
   }
+
+  set(val, i) {
+    if (!this.head || i > this.length || i < 0 || typeof i !== "number")
+      return null;
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== i) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    currentNode.val = val;
+    return currentNode;
+  }
 }
 
 let list = new singlyLinkedList();
