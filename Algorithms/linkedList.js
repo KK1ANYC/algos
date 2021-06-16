@@ -87,13 +87,6 @@ class singlyLinkedList {
   }
 
   set(val, index) {
-    if (
-      !this.head ||
-      index > this.length ||
-      index < 0 ||
-      typeof index !== "number"
-    )
-      return null;
     let foundNode = this.get(index);
     if (foundNode) {
       foundNode.val = val;
