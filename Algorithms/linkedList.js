@@ -46,6 +46,22 @@ class singlyLinkedList {
       return this;
     }
   }
+
+  shift() {
+    if (!this.head) return this;
+    else if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length--;
+      return this;
+    } else {
+      let newHead = this.head.next;
+      this.head = null;
+      this.head = newHead;
+      this.length--;
+      return this;
+    }
+  }
 }
 
 let list = new singlyLinkedList();
