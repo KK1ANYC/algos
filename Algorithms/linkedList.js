@@ -99,6 +99,7 @@ class singlyLinkedList {
     var prev = this.get(index - 1);
     var temp = prev.next;
     prev.next = newNode;
+    newNode.next = temp;
     this.length++;
     return true;
   }
