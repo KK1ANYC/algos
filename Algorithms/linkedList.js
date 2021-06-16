@@ -32,6 +32,7 @@ class singlyLinkedList {
       this.head = null;
       this.tail = null;
       this.length--;
+      return this
     } else {
       let currentNode = this.head;
       while (currentNode.next.next) {
@@ -40,6 +41,7 @@ class singlyLinkedList {
       this.tail = currentNode;
       currentNode.next = null;
       this.length--;
+      return this
     }
   }
 }
