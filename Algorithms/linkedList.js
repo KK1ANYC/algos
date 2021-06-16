@@ -70,6 +70,21 @@ class singlyLinkedList {
     this.length++;
     return this;
   }
+
+  get(index) {
+    if (
+      !this.head ||
+      index > this.length ||
+      index < 0 ||
+      typeof index !== "number"
+    )
+      return null;
+    let currentNode = this.head;
+    for (let i = 0; i <= index - 1; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.val;
+  }
 }
 
 let list = new singlyLinkedList();
