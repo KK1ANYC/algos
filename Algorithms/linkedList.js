@@ -138,3 +138,6 @@ list.push("hi");
 list.push("there");
 list.push("you");
 console.log(list);
+
+//doubly linked list
+
