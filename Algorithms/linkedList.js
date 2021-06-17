@@ -216,15 +216,6 @@ class doublyLinkedList {
 
   get(index) {
     if (!this.head || index < 0 || index >= this.length) return undefined;
-    let currentNode = this.head;
-    for (let i = 0; i < index; i++) {
-      currentNode = this.head.next;
-      currentNode.prev = this.head;
-    }
-  }
-
-  get(index) {
-    if (!this.head || index < 0 || index >= this.length) return undefined;
     let currentNode;
     if (index > Math.floor(this.length / 2)) {
       currentNode = this.tail;
@@ -240,6 +231,8 @@ class doublyLinkedList {
     console.log("currentNode", currentNode);
     return currentNode;
   }
+
+
 }
 
 let list = new doublyLinkedList();
