@@ -232,7 +232,14 @@ class doublyLinkedList {
     return currentNode;
   }
 
-
+  set(index, val) {
+    let node = this.get(index);
+    if (!node) return false;
+    else {
+      node.val = val;
+      return true;
+    }
+  }
 }
 
 let list = new doublyLinkedList();
