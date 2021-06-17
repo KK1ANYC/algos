@@ -228,7 +228,6 @@ class doublyLinkedList {
         currentNode = currentNode.next;
       }
     }
-    console.log("currentNode", currentNode);
     return currentNode;
   }
 
@@ -239,6 +238,30 @@ class doublyLinkedList {
       node.val = val;
       return true;
     }
+  }
+
+  insert(index, val) {
+    if (index > this.length || index < 0) return undefined;
+    if (index === this.length) return this.push(val);
+    if (index === 0) return this.shift(val);
+    let currentNode = this.get(index);
+    val.prev = currentNode.prev;
+    val.next = currentNode;
+    return true;
+  }
+
+  insert(index, val) {
+    let newNode = new Node(val);
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+    let prev = this.get(index - 1);
+    let next = prev.next;
+    newNode.next = next;
+    newNode.prev = prev;
+    prev.next = newNode;
+    next.prev = newNode;
+    this.length++;
+    return true;
   }
 }
 
