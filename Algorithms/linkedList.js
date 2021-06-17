@@ -169,6 +169,21 @@ class doublyLinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    let removedNode = this.tail;
+    if (!this.head) return null;
+    else if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+      removedNode.prev = null;
+    }
+    this.length--;
+    return removedNode;
+  }
 }
 
 let list = new doublyLinkedList();
