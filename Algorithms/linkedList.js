@@ -213,6 +213,33 @@ class doublyLinkedList {
     this.length++;
     return newNode;
   }
+
+  get(index) {
+    if (!this.head || index < 0 || index >= this.length) return undefined;
+    let currentNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currentNode = this.head.next;
+      currentNode.prev = this.head;
+    }
+  }
+
+  get(index) {
+    if (!this.head || index < 0 || index >= this.length) return undefined;
+    let currentNode;
+    if (index > Math.floor(this.length / 2)) {
+      currentNode = this.tail;
+      for (let i = this.length - 1; i > index; i--) {
+        currentNode = currentNode.prev;
+      }
+    } else {
+      currentNode = this.head;
+      for (let i = 0; i < index; i++) {
+        currentNode = currentNode.next;
+      }
+    }
+    console.log("currentNode", currentNode);
+    return currentNode;
+  }
 }
 
 let list = new doublyLinkedList();
