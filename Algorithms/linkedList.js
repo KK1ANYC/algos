@@ -241,6 +241,7 @@ class doublyLinkedList {
   }
 
   insert(index, val) {
+    if (index < 0 || index > this.length) return false;
     let newNode = new Node(val);
     if (index === this.length) return !!this.push(val);
     if (index === 0) return !!this.unshift(val);
@@ -255,6 +256,7 @@ class doublyLinkedList {
   }
 
   remove(index) {
+    if (index < 0 || index >= this.length) return false;
     if (index === 0) return this.shift();
     else if (index === this.length - 1) return this.pop();
     else {
