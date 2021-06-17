@@ -184,6 +184,21 @@ class doublyLinkedList {
     this.length--;
     return removedNode;
   }
+
+  shift() {
+    let removeNode = this.head;
+    if (!this.head) return null;
+    else if (this.length === 1) {
+      this.tail = null;
+      this.head = null;
+    } else {
+      this.head = removeNode.next;
+      this.head.prev = null;
+      removeNode.next = null;
+    }
+    this.length--;
+    return this;
+  }
 }
 
 let list = new doublyLinkedList();
