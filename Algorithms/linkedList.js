@@ -276,6 +276,8 @@ list.push(5); //this.tail
 list.reverse();
 console.log(list);
 
+
+
 //doubly linked list
 
 class Node {
