@@ -40,3 +40,5 @@ class Stack {
     return newFirst.val;
   }
 }
+
+stacks.push(1)
