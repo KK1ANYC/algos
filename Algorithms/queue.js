@@ -1,4 +1,4 @@
-//Queue
+//Queue adding to the tail and removing from the head
 
 class Node {
   constructor(val) {
