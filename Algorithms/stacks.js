@@ -1,4 +1,4 @@
-//stacks
+//stacks add to the first and remove from the top
 class Node {
   constructor(val) {
     this.val = val;
