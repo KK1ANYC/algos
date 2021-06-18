@@ -44,3 +44,5 @@ class Stack {
 stacks.push(1)
 stacks.push(2)
 stacks.push(3)
+stacks.pop()
+console.log(stacks)
