@@ -41,8 +41,10 @@ class Stack {
   }
 }
 
-stacks.push(1)
-stacks.push(2)
-stacks.push(3)
-stacks.pop()
-console.log(stacks)
+let stack = new Stack()
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.pop()
+console.log(stack)
