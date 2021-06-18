@@ -42,3 +42,4 @@ class Stack {
 }
 
 stacks.push(1)
+stacks.push(2)
