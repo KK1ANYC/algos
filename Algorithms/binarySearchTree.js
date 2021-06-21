@@ -87,4 +87,15 @@ class BinarySearchTree {
     }
     return visited;
   }
+
+  DFSPreOrder() {
+    let result = [];
+    function recursiveHelper(node) {
+      result.push(node.val);
+      if (node.left) recursiveHelper(node.left);
+      if (node.right) recursiveHelper(node.right);
+    }
+    recursiveHelper(this.root);
+    return result;
+  }
 }
