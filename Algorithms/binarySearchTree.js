@@ -17,6 +17,7 @@ class BinarySearchTree {
     if (!this.root) this.root = newNode;
     else {
       while (current) {
+	if (val === current.val) return undefined
         if (val > current.val && current.right) {
           current = current.right;
         } else if (val < current.val && current.left) {
