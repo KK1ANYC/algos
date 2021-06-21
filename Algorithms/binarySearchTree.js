@@ -98,4 +98,15 @@ class BinarySearchTree {
     recursiveHelper(this.root);
     return result;
   }
+
+  DFSPostOrder() {
+    let result = [];
+    function recursiveHelper(node) {
+      if (node.left) recursiveHelper(node.left);
+      if (node.right) recursiveHelper(node.right);
+      result.push(node.val);
+    }
+    recursiveHelper(this.root);
+    return result;
+  }
 }
