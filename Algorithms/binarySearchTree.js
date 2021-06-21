@@ -11,23 +11,23 @@ class BinarySearchTree {
   constructor() {
     this.root;
   }
-//   insert(val) {
-//     let newNode = new Node(val);
-//     let current = this.root;
-//     if (!this.root) this.root = newNode;
-//     else {
-//       while (current) {
-//         if (val === current.val) return undefined;
-//         if (val > current.val && current.right) {
-//           current = current.right;
-//         } else if (val < current.val && current.left) {
-//           current = current.left;
-//         } else break;
-//       }
-//       val > current.val ? (current.right = newNode) : (current.left = newNode);
-//     }
-//     return this;
-//   }
+  //   insert(val) {
+  //     let newNode = new Node(val);
+  //     let current = this.root;
+  //     if (!this.root) this.root = newNode;
+  //     else {
+  //       while (current) {
+  //         if (val === current.val) return undefined;
+  //         if (val > current.val && current.right) {
+  //           current = current.right;
+  //         } else if (val < current.val && current.left) {
+  //           current = current.left;
+  //         } else break;
+  //       }
+  //       val > current.val ? (current.right = newNode) : (current.left = newNode);
+  //     }
+  //     return this;
+  //   }
 
   insert(val) {
     let newNode = new Node(val);
@@ -53,5 +53,21 @@ class BinarySearchTree {
         }
       }
     }
+  }
+
+  find(val) {
+    let current = this.root;
+    if (!this.root) return false;
+    while (current.val !== val && !current.val) {
+      if (val > current.val) {
+        current = current.right;
+      } else {
+        current = current.left;
+      }
+    }
+    if (current.val === val) {
+      return true;
+    }
+    return false;
   }
 }
