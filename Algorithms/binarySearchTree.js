@@ -29,6 +29,7 @@ class BinarySearchTree {
   //     return this;
   //   }
 
+  //O (log n)
   insert(val) {
     let newNode = new Node(val);
     let current = this.root;
@@ -55,6 +56,7 @@ class BinarySearchTree {
     }
   }
 
+  //O (log n)
   find(val) {
     let current = this.root;
     if (!this.root) return false;
