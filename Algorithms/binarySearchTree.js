@@ -114,8 +114,8 @@ class BinarySearchTree {
     let result = [];
     function recursiveHelper(node) {
       if (node.left) recursiveHelper(node.left);
-      if (node.right) recursiveHelper(node.right);
       result.push(node.val);
+      if (node.right) recursiveHelper(node.right);
     }
     recursiveHelper(this.root);
     return result;
