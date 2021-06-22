@@ -29,16 +29,17 @@ class MaxBinaryHeap {
       let left = i * 2 + 1;
       let right = i * 2 + 2;
       if (
-        this.values[i] > this.values[left] &&
-        this.values[i] > this.values[right]
-      )
-        break;
-      else if (this.values[left] > this.values[right]) {
+        this.values[left] > this.values[right] &&
+        this.values[left] > this.values[i]
+      ) {
         let temp = this.values[left];
         this.values[left] = this.values[i];
         this.values[i] = temp;
         i = left;
-      } else if (this.values[right] > this.values[left]) {
+      } else if (
+        this.values[right] > this.values[left] &&
+        this.values[right] > this.values[i]
+      ) {
         let temp = this.values[right];
         this.values[right] = this.values[i];
         this.values[i] = temp;
