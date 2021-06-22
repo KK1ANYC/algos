@@ -127,7 +127,7 @@ class Node {
   }
 }
 
-let heap = new MinBinaryHeap();
+let heap = new MaxBinaryHeap();
 
 heap.enqueue("concusion", 3);
 heap.enqueue("low fever", 4);
