@@ -58,17 +58,17 @@ class BinarySearchTree {
 
   //O (log n)
   find(val) {
-    let current = this.root;
     if (!this.root) return false;
-    while (current.val !== val && !current.val) {
+    let current = this.root;
+    let found = false;
+    while (current && !found) {
       if (val > current.val) {
         current = current.right;
-      } else {
+      } else if (val < current.val) {
         current = current.left;
+      } else {
+        return true;
       }
-    }
-    if (current.val === val) {
-      return true;
     }
     return false;
   }
