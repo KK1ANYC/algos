@@ -41,6 +41,7 @@ class HashTable {
   }
 }
 
-let hash = new HashTable(53);
-hash.set; //(key, value)
-console.log(hash);
+let hash = new HashTable(53)
+hash.set("pink", 4)//(key, value)
+hash.set("knip", 5)
+hash.get("pink")
