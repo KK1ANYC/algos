@@ -15,7 +15,16 @@ class HashTable {
     }
     return total;
   }
-  set(key, value) {}
+  set(key, value) {
+    let i = this._hash(key);
+    if (!this.keyMap[i]) {
+      this.keyMap[i] = [];
+      this.keyMap[i].push([key, value]);
+    } else {
+      this.keyMap[i].push([key, value]);
+    }
+    return this.keyMap;
+  }
 }
 
 let hash = new HashTable(53);
