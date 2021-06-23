@@ -25,6 +25,20 @@ class HashTable {
     }
     return this.keyMap;
   }
+
+  get(key) {
+    let i = this._hash(key);
+    if (!this.keyMap[i]) return undefined;
+    else if (this.keyMap[i].length === 1) return this.keyMap[i][0];
+    else if (this.keyMap[i].length > 1) {
+      for (let j = 0; j < this.keyMap[i].length; j++) {
+        let currentVal = this.keyMap[i][j];
+        if (currentVal[0] === key) return currentVal;
+      }
+    } else {
+      return undefined;
+    }
+  }
 }
 
 let hash = new HashTable(53);
