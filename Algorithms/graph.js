@@ -29,9 +29,15 @@ class Graph {
       return undefined;
     }
   }
+
 }
 
 let graph = new Graph();
 
-graph.addVertex("pink");
-console.log(graph);
+graph.addVertex("green")
+graph.addVertex("yellow")
+graph.addVertex("blue")
+graph.addEdge("green", "blue")
+graph.addEdge("yellow", "green")
+graph.removeEdge("green", "blue")
+console.log(graph)
