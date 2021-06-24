@@ -13,7 +13,7 @@ class Graph {
     this.adjacencyList[vertex2].push(vertex1);
   }
 
-  removeEdge(vertex1, vertex2) {
+  removeEdge(vertex1, vertex2) { //can use sink down like bubble and .pop()
     if (this.adjacencyList[vertex1]) {
       for (let i = 0; i < this.adjacencyList[vertex1].length; i++) {
         if (this.adjacencyList[vertex1][i] === vertex2)
