@@ -58,18 +58,12 @@ class Graph {
     let result = [];
     let adjacencyList = this.adjacencyList;
     function helper(vertex) {
-      if (adjacencyList[vertex].length === 0) return;
-      else {
-        if (!memo[vertex]) {
-          memo[vertex] = true;
-          result.push(vertex);
-        }
-        for (let i = 0; i < adjacencyList[vertex].length; i++) {
-          if (!memo[adjacencyList[vertex][i]]) {
-            memo[adjacencyList[vertex][i]] = true;
-            result.push(adjacencyList[vertex][i]);
-            helper(adjacencyList[vertex][i]);
-          }
+      if (!vertex) return null;
+      memo[vertex] = true;
+      result.push(vertex);
+      for (let i = 0; i < adjacencyList[vertex].length; i++) {
+        if (!memo[adjacencyList[vertex][i]]) {
+          helper(adjacencyList[vertex][i]);
         }
       }
     }
