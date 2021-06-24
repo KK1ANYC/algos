@@ -52,14 +52,48 @@ class Graph {
     //   delete this.adjacencyList[vertex]
     //
   }
+
+  depthFirstRecursive(vertex) {
+    let memo = {};
+    let result = [];
+    let adjacencyList = this.adjacencyList;
+    function helper(vertex) {
+      if (adjacencyList[vertex].length === 0) return;
+      else {
+        if (!memo[vertex]) {
+          memo[vertex] = true;
+          result.push(vertex);
+        }
+        for (let i = 0; i < adjacencyList[vertex].length; i++) {
+          if (!memo[adjacencyList[vertex][i]]) {
+            memo[adjacencyList[vertex][i]] = true;
+            result.push(adjacencyList[vertex][i]);
+            helper(adjacencyList[vertex][i]);
+          }
+        }
+      }
+    }
+    helper(vertex);
+    return result;
+  }
 }
 
-let graph = new Graph();
+let g = new Graph();
 
-graph.addVertex("green");
-graph.addVertex("yellow");
-graph.addVertex("blue");
-graph.addEdge("green", "blue");
-graph.addEdge("yellow", "green");
-graph.removeEdge("green", "blue");
-console.log(graph);
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+
+g.addEdge("A", "B");
+g.addEdge("A", "C");
+g.addEdge("B", "D");
+g.addEdge("C", "E");
+g.addEdge("D", "E");
+g.addEdge("D", "F");
+g.addEdge("E", "F");
+g.depthFirstRecursive("A");
+
+console.log(g);
