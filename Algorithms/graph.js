@@ -30,6 +30,10 @@ class Graph {
     }
   }
 
+  removeVertex() {
+	  
+  }
+
 }
 
 let graph = new Graph();
