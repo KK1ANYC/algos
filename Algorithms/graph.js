@@ -70,6 +70,27 @@ class Graph {
     helper(vertex);
     return result;
   }
+
+  depthFirstIterative(vertex) {
+    let memo = {};
+    let stack = [vertex];
+    let result = [];
+    let currVertex;
+
+    memo[vertex] = true;
+    while (stack.length) {
+      currVertex = stack.pop();
+      result.push(currVertex);
+
+      this.adjacencyList[currVertex].forEach((neighbor) => {
+        if (!memo[neighbor]) {
+          memo[neighbor] = true;
+          stack.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
 }
 
 let g = new Graph();
