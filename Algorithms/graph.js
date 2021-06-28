@@ -91,6 +91,26 @@ class Graph {
     }
     return result;
   }
+
+  breadthFirstIterative(start) {
+    let current = start;
+    let queue = [current];
+    let result = [];
+    let visited = {};
+    visited[current] = true;
+    while (queue.length) {
+      current = queue.shift();
+      result.push(current);
+      for (let i = 0; i < this.adjacencyList[current].length; i++) {
+        let cv = this.adjacencyList[current][i];
+        if (!visited[cv]) {
+          visited[cv] = true;
+          queue.push(cv);
+        }
+      }
+    }
+    return result;
+  }
 }
 
 let g = new Graph();
