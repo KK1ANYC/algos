@@ -132,3 +132,5 @@ g.addEdge("E", "F");
 g.depthFirstRecursive("A");
 
 console.log(g);
+
+//Dijkstra's
