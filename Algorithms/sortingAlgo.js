@@ -1,5 +1,9 @@
 //bubble sort
 //example 1
+//Best: O(n) time | O(1) space
+//Average: O(n^2) time | O(1) space
+//Worst: O(n^2) time | O(1) space
+
 function bubbleSort(array) {
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
