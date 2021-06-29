@@ -122,6 +122,25 @@ function insertionSort(arr) {
   return arr;
 }
 
+//example 3
+function insertionSort(array) {
+  // Write your code here.
+  for (let i = 1; i < array.length; i++) {
+    let j = i;
+    while (j > 0 && array[j] < array[j - 1]) {
+      swap(j, j - 1, array);
+      j -= 1;
+    }
+  }
+  return array;
+}
+
+function swap(i, j, array) {
+  const temp = array[j];
+  array[j] = array[i];
+  array[i] = temp;
+}
+
 console.log(insertionSort([15, 10, 3, 1, 4, 7, 5]));
 
 //Merge sort
@@ -262,11 +281,9 @@ const radixSort = (arr) => {
         radixArr[0].push(curr);
       }
     }
-    arr = [].concat(...radixArr)
+    arr = [].concat(...radixArr);
   }
   return arr;
 };
 
 console.log(radixSort([56, 345, 43, 6, 8, 200])); // 4
-
-
