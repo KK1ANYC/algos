@@ -94,6 +94,36 @@ function selectionSort(arr) {
 
 console.log(selectionSort([15, 10, 3, 1, 4, 7, 5]));
 
+//example 3
+//Best: O(n^2) time | O(1) space
+//Average: O(n^2) time | O(1) space
+//Worst: O(n^2) time | O(1) space
+function selectionSort(array) {
+  // Write your code here.
+  let smallest = Infinity;
+  let smallestIdx = 0;
+  let swap = false;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i; j < array.length; j++) {
+      if (array[j] < smallest) {
+        smallest = array[j];
+        smallestIdx = j;
+        swap = true;
+      }
+    }
+    if (swap) {
+      let temp = array[smallestIdx];
+      array[smallestIdx] = array[i];
+      array[i] = temp;
+      smallest = Infinity;
+      swap = false;
+    } else {
+      break;
+    }
+  }
+  return array;
+}
+
 //Insertion Sort
 //example 1
 function insertionSort(arr) {
@@ -123,6 +153,10 @@ function insertionSort(arr) {
 }
 
 //example 3
+//Best: O(n) time | O(1) space
+//Average: O(n^2) time | O(1) space
+//Worst: O(n^2) time | O(1) space
+
 function insertionSort(array) {
   // Write your code here.
   for (let i = 1; i < array.length; i++) {
