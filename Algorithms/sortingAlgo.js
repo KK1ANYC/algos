@@ -100,10 +100,10 @@ console.log(selectionSort([15, 10, 3, 1, 4, 7, 5]));
 //Worst: O(n^2) time | O(1) space
 function selectionSort(array) {
   // Write your code here.
-  let smallest = Infinity;
-  let smallestIdx = 0;
-  let swap = false;
   for (let i = 0; i < array.length; i++) {
+    let smallest = Infinity;
+    let swap = false;
+    let smallestIdx = 0;
     for (let j = i; j < array.length; j++) {
       if (array[j] < smallest) {
         smallest = array[j];
@@ -115,8 +115,6 @@ function selectionSort(array) {
       let temp = array[smallestIdx];
       array[smallestIdx] = array[i];
       array[i] = temp;
-      smallest = Infinity;
-      swap = false;
     } else {
       break;
     }
