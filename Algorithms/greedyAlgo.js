@@ -33,3 +33,33 @@ function classPhotos(redShirtHeights, blueShirtHeights) {
   }
   return true;
 }
+
+//tandem bicycle
+
+//O(nlog(n)) time | O(1) space - where n is the number of tandem bicycles
+
+function tandemBicycle(red, blue, fastest) {
+  if (fastest) {
+    red.sort((a, b) => b - a);
+    blue.sort((a, b) => a - b);
+    let sum = 0;
+    let i = 0;
+    while (i < red.length) {
+      if (red[i] > blue[i]) sum += red[i];
+      else sum += blue[i];
+      i++;
+    }
+    return sum;
+  } else {
+    red.sort((a, b) => a - b);
+    blue.sort((a, b) => a - b);
+    let sum = 0;
+    let i = 0;
+    while (i < red.length) {
+      if (red[i] > blue[i]) sum += red[i];
+      else sum += blue[i];
+      i++;
+    }
+    return sum;
+  }
+}
