@@ -276,7 +276,29 @@ list.push(5); //this.tail
 list.reverse();
 console.log(list);
 
+//singly linked list remove duplicates
 
+//O(n) time | O(1) space  - where n is the number of nodes in the Linked List
+class LinkedList {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+function removeDuplicatesFromLinkedList(linkedList) {
+  // Write your code here.
+  let current = linkedList;
+  while (current.next) {
+    let next = current.next;
+    if (current.value !== current.next.value) {
+      current = next;
+    } else {
+      current.next = next.next;
+    }
+  }
+  return linkedList;
+}
 
 //doubly linked list
 
