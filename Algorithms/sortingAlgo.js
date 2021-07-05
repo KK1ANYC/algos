@@ -122,7 +122,7 @@ function selectionSort(array) {
   return array;
 }
 
-//example 4
+//example 4 ***
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     let smallest = arr[i];
