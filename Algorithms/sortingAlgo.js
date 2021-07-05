@@ -122,6 +122,25 @@ function selectionSort(array) {
   return array;
 }
 
+//example 4
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let smallest = arr[i];
+    let smallestIdx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < smallest) {
+        smallest = arr[j];
+        smallestIdx = j;
+      }
+    }
+    arr[smallestIdx] = arr[i];
+    arr[i] = smallest;
+  }
+  return arr;
+}
+
+console.log(selectionSort([4, 5, 3, 2, 7, 1, 6]));
+
 //Insertion Sort
 //example 1
 function insertionSort(arr) {
