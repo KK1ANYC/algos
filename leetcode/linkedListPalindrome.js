@@ -1,3 +1,4 @@
+//example 1
 var isPalindrome = function (head) {
   let result = [];
   let current = head;
@@ -20,3 +21,15 @@ console.log(isPalindrome([1, 2, 2, 1]));
 console.log(isPalindrome([1, 2]));
 // Input: head = [1,2]
 // Output: false
+
+//example 2
+var isPalindrome = function(head) {
+  let straight = '';
+  let reversed = '';
+  while (head) {
+      straight += head.val;
+      reversed = head.val + reversed;
+      head = head.next;
+  };
+  return straight === reversed;
+};
