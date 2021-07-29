@@ -1,3 +1,4 @@
+//solution 1
 function longestPeak(array) {
   // Write your code here.
   let longestPeakLength = 0;
@@ -24,4 +25,27 @@ function longestPeak(array) {
     i = rightIdx;
   }
   return longestPeakLength;
+}
+
+//solution 2
+function longestPeak(arr) {
+  let big = 0;
+  let up = 1;
+  let down = 0;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > arr[i - 1] && down === 0) up++; //count going up
+    if (arr[i] === arr[i - 1] && down === 0) up = 1; //broke, but there was no decreasing values
+    if (arr[i] < arr[i - 1] && up > 1) down++; //count going down
+    if (arr[i + 1] === undefined && down > 0) {
+      //the break was end of array
+      if (up + down > big) big = up + down;
+    }
+    if (arr[i] <= arr[i + 1] && down > 0) {
+      //the break happened now need to set big and reset values
+      if (up + down > big) big = up + down;
+      up = 1;
+      down = 0;
+    }
+  }
+  return big;
 }
