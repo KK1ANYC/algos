@@ -24,7 +24,7 @@ function twoNumberSum(array, targetSum) {
   return [];
 }
 
-//solution 2 - nested for loop
+//solution 2 - Nested for loop
 function twoNumberSum(array, targtSum) {
   for (let i = 0; i < array.length; i++) {
     let firstNum = array[i];
