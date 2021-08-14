@@ -5,7 +5,7 @@ let targetSum = 10;
 
 console.log(twoNumberSum(array, targetSum));
 
-//solution 1 - Pointers
+//solution 1 - 2 Pointers
 function twoNumberSum(array, targetSum) {
   array.sort((a, b) => a - b);
   let left = 0;
