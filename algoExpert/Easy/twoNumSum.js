@@ -1,19 +1,7 @@
 let array = [3, 5, -4, 8, 11, 1, -1, 6];
 let targetSum = 10;
 
-//solution 2 - memo
-function twoNumberSum (array, targetSum) {
-  let memo = {};
-  for (let i = 0; i < array.length; i++) {
-    let num = array[i]
-    if (memo[targetSum - num]) {
-      return [num, (targetSum - num)]
-    } else {
-      memo[num] = true
-    }
-  }
-  return []
-}
+
 
 console.log(twoNumberSum(array, targetSum));
 
@@ -48,4 +36,18 @@ function twoNumberSum(array, targtSum) {
     }
   }
   return [];
+}
+
+//solution 3 - memo
+function twoNumberSum (array, targetSum) {
+  let memo = {};
+  for (let i = 0; i < array.length; i++) {
+    let num = array[i]
+    if (memo[targetSum - num]) {
+      return [num, (targetSum - num)]
+    } else {
+      memo[num] = true
+    }
+  }
+  return []
 }
