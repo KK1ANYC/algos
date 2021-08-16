@@ -27,6 +27,5 @@ function sortedSquaredArray(array) {
       largerValueIdx--;
     }
   }
-
   return sortedSquares;
 }
