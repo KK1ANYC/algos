@@ -83,4 +83,4 @@ console.log(
 ); //2
 console.log(mostCommonWord("a.", [])); //1
 console.log(mostCommonWord("Bob", [])); //1
-console.log(mostCommonWord([1,3,5,6], 7)) //4
+console.log(mostCommonWord([1, 3, 5, 6], 7)); //4
