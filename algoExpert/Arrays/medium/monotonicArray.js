@@ -43,3 +43,4 @@ function isMonotonic(array) {
 
   return true;
 }
+
