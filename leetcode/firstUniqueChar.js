@@ -1,3 +1,6 @@
+// time complex O(n)
+//linear time linear space
+
 var firstUniqChar = function (s) {
   const uniqSet = new Set(); //
   let firstKey = undefined;
