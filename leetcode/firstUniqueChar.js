@@ -23,8 +23,3 @@ var firstUniqChar = function (s) {
   return -1;
 };
 
-//loop through s
-//if not in set, set[char] - 1
-//if in add to set[char]
-//loop through set and find the value that equals 1, set variable firstKey to the key
-//for loo of s to find the idx of matching key
