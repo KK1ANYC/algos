@@ -56,3 +56,9 @@ function findMistake(nums) {
   console.log(getMissingNo(tempArr, tempL));
   // return Number(duplicate) + getMissingNo(tempArr,tempL)
 }
+
+console.log(test([1,1,3,4])); //3
+// console.log(test([2,2])); //3
+// console.log(test([4,3,3,1])); //5
+// console.log(test([6,3,2,4,3,1])); //8
+// console.log(test([10,2,3,4,5,6,7,8,9,10])); //11
