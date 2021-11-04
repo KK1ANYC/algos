@@ -57,7 +57,31 @@ function findMistake(nums) {
   // return Number(duplicate) + getMissingNo(tempArr,tempL)
 }
 
-console.log(test([1,1,3,4])); //3
+// Problem #3
+function findMistake(arr) {
+  arr = arr.sort((a, b) => a - b);
+  const setObj = new Set();
+  const hash = new Map();
+  let result = 0;
+  for (const cv of arr) {
+    if (!hash.has(cv)) {
+      hash.set(cv);
+    } else {
+      result = cv;
+      break;
+    }
+  }
+  let count = 1;
+  for (let key of setObj) {
+    if (count !== key) {
+      result += count;
+      return result;
+    }
+    count++;
+  }
+}
+
+console.log(test([1, 1, 3, 4])); //3
 // console.log(test([2,2])); //3
 // console.log(test([4,3,3,1])); //5
 // console.log(test([6,3,2,4,3,1])); //8
