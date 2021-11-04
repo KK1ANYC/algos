@@ -1,3 +1,15 @@
+//Problem #1
+function highestPowerof2(n) {
+  let res = 0;
+  for (let i = n; i >= 1; i--) {
+    // If i is a power of 2
+    if ((i & (i - 1)) == 0) {
+      res = i;
+      break;
+    }
+  }
+  return res;
+}
 
 // Problem #2
 var canJump = function (nums) {
