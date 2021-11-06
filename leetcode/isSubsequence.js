@@ -12,3 +12,9 @@ var isSubsequence = function (s, t) {
 console.log(isSubsequence("abc", "ahbgdc")); //true
 console.log(isSubsequence("axc", "ahbgdc")); //false
 
+/*
+split s into an array
+loop through t and check if the s[0] === t[i]
+if it does, shift and continue until length is 0
+return true if length is 0 else false
+*/
