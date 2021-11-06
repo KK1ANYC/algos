@@ -1,3 +1,4 @@
+// turn into an array and use indexOf, takes longer
 var isSubsequence = function (s, t) {
   s = s.split("");
   for (let i = 0; i < t.length; i++) {
@@ -6,6 +7,18 @@ var isSubsequence = function (s, t) {
     }
   }
   if (s.length > 0) return false;
+  return true;
+};
+
+// two pointers solution, optimal
+var isSubsequence = function (s, t) {
+  let p1 = 0
+  for (let i = 0; i < t.length; i++) {
+    if (s[p1] === t[i]) {
+      p1++
+    }
+  }
+  if (p1 < s.length) return false;
   return true;
 };
 
