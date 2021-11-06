@@ -38,6 +38,20 @@ function isPalindrome(x) {
   return remainingStringIsPalindrome;
 }
 
+
+function isPalindrome(num) {
+  if (num < 0) return false;
+  let rev = 0;
+  let n = num;
+  while (n) {
+    let last = n % 10;
+    rev = rev * 10 + last;
+    n = Math.floor(n / 10);
+    console.log(rev, n);
+  }
+  return rev === num;
+}
+
 console.log(isPalindrome(121)); //true
 console.log(isPalindrome(-121)); //false
 console.log(isPalindrome(10)); //false
