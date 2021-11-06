@@ -1,3 +1,5 @@
+
+//O(n) space and time, linear
 function twoSum(nums, target) {
   let vals = {};
 
@@ -10,5 +12,7 @@ function twoSum(nums, target) {
   }
   return [];
 }
+
+
 
 console.log(twoSum([3, 2, 4], 6));
