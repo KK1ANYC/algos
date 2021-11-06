@@ -15,3 +15,16 @@ var maxProfit = function (prices) {
   }
   return result;
 };
+
+//O(n) final solution
+var maxProfit = function (prices) {
+  let result = 0;
+  let min = prices[0];
+  for (let i = 1; i < prices.length; i++) {
+    min = Math.min(prices[i], min);
+    result = Math.max(result, prices[i] - min);
+  }
+  return result;
+};
+
+console.log(maxProfit([2, 4, 1], 2));
