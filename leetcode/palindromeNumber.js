@@ -38,7 +38,7 @@ function isPalindrome(x) {
   return remainingStringIsPalindrome;
 }
 
-
+//math solution
 function isPalindrome(num) {
   if (num < 0) return false;
   let rev = 0;
