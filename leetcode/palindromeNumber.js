@@ -15,6 +15,29 @@ var isPalindrome = function (x) {
   return true;
 };
 
+
+function isPalindrome(x) {
+  x = x.toString();
+  if (x.length === 1) {
+    return true;
+  }
+  //if the string length is 2 it has to equal each other to be a palindrome
+  if (x.length === 2) {
+    return string[0] === string[1];
+  }
+  //firstLetter variable to equal first letter
+  let firstLetter = x[0];
+  //lastLetter variable to equal the last letter
+  let lastLetter = x.slice(-1);
+  //if the first and last letter does not equal, return false
+  if (firstLetter !== lastLetter) {
+    return false;
+  }
+  //recursion happens when you slice the string from the first character to the last character
+  let remainingStringIsPalindrome = isPalindrome(x.slice(1, -1));
+  return remainingStringIsPalindrome;
+}
+
 console.log(isPalindrome(121)); //true
 console.log(isPalindrome(-121)); //false
 console.log(isPalindrome(10)); //false
