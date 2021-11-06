@@ -1,4 +1,4 @@
-//O(n) linear time
+//O(n) linear
 var isPalindrome = function (x) {
   if (x < 0) return false;
   let str = String(x);
@@ -15,7 +15,7 @@ var isPalindrome = function (x) {
   return true;
 };
 
-
+//Recurssion, O(n) time O(n) space
 function isPalindrome(x) {
   x = x.toString();
   if (x.length === 1) {
@@ -37,6 +37,7 @@ function isPalindrome(x) {
   let remainingStringIsPalindrome = isPalindrome(x.slice(1, -1));
   return remainingStringIsPalindrome;
 }
+
 
 //math solution
 function isPalindrome(num) {
