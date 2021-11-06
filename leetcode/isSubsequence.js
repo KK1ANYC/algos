@@ -9,4 +9,6 @@ var isSubsequence = function (s, t) {
   return true;
 };
 
+console.log(isSubsequence("abc", "ahbgdc")); //true
+console.log(isSubsequence("axc", "ahbgdc")); //false
 
