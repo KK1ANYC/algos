@@ -13,6 +13,24 @@ var uniqueOccurrences = function (arr) {
   return true;
 };
 
+var uniqueOccurrences = function (arr) {
+  let memo = {};
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
+    if (!memo[num]) memo[num] = 1;
+    else memo[num] += 1;
+  }
+  let freqArr = [];
+  for (let key in memo) {
+    if (freqArr.includes(memo[key])) {
+      return false;
+    } else {
+      freqArr.push(memo[key]);
+    }
+  }
+  return true;
+};
+
 
 console.log(uniqueOccurrences([1, 2, 2, 1, 1, 3])); //true
 console.log(uniqueOccurrences([1, 2])); //false
