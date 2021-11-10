@@ -35,3 +35,28 @@ var maximumProduct = function (nums) {
   var min2 = nums[1];
   return Math.max(max1 * max2 * max3, max1 * min1 * min2);
 };
+
+var maximumProduct = function (nums) {
+  if (nums.length === 3) return nums[0] * nums[1] * nums[2];
+  let neg1 = Infinity;
+  let neg2 = Infinity;
+  let pos1 = -Infinity;
+  let pos2 = -Infinity;
+  let pos3 = -Infinity;
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    if (num < neg1) {
+      neg2 = neg1;
+      neg1 = num;
+    } else if (num >= neg1 && num < neg2) neg2 = num;
+    if (num > pos1) {
+      pos3 = pos2;
+      pos2 = pos1;
+      pos1 = num;
+    } else if (num <= pos1 && num > pos2) {
+      pos3 = pos2;
+      pos2 = num;
+    } else if (num <= pos2 && num > pos3) pos3 = num;
+  }
+  return Math.max(pos1 * pos2 * pos3, pos1 * neg1 * neg2);
+};
