@@ -26,3 +26,20 @@ var fib = function(n) {
 };
 
 
+
+/*
+constraint n is less than 30
+have base cases
+n = 0, 0
+n = 1, 1
+else recursion
+fib(n - 1) + fib(n - 2) these results will be added to call stack
+
+n starts at 10
+it will recursively call
+fib(10 - 1) + fib(10 - 2)
+10 is reduced to 1
+fib( 2 - 1) n = 1, fib(2 - 2), n = 0
+f
+*/
+
