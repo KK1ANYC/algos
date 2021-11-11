@@ -15,6 +15,23 @@ function findTheDifference(string, test) {
   }
 }
 
+
+var findTheDifference = function (s, t) {
+  let hash = {};
+  for (let i = 0; i < s.length; i++) {
+    if (hash[s[i]]) hash[s[i]]++;
+    else hash[s[i]] = 1;
+  }
+
+  for (let k = 0; k < t.length; k++) {
+    if (hash[t[k]]) {
+      hash[t[k]]--;
+    } else {
+      return t[k];
+    }
+  }
+};
+
 console.log(findTheDifference("abcd", "abcde")); //e
 console.log(findTheDifference("", "y")); //y
 console.log(findTheDifference("ae", "aea")); //a
