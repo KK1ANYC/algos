@@ -18,6 +18,8 @@ function findTheDifference(string, test) {
 
 var findTheDifference = function (s, t) {
   let hash = {};
+  if (s.length === 0) return t;
+
   for (let i = 0; i < s.length; i++) {
     if (hash[s[i]]) hash[s[i]]++;
     else hash[s[i]] = 1;
