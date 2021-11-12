@@ -1,4 +1,4 @@
-
+//O(n) time and O(n) space
 var kidsWithCandies = function (candies, extraCandies) {
   let mostCandy = 0;
   for (let candy of candies) {
@@ -20,3 +20,4 @@ var kidsWithCandies = function (candies, extraCandies) {
 
   return result;
 };
+
