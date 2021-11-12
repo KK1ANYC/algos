@@ -17,3 +17,22 @@ var countConsistentStrings = function (allowed, words) {
   }
   return count;
 };
+
+/*
+allowed char are alphabet - lowercase letters
+less than 10 words in array
+char in allowed are distinct - no duplicates
+
+build hash table
+loop through allowed and input chars in hash
+
+set variable count to words.length
+nested loop
+Outer loop through words array
+inner loop through each el in array
+check if each char in el are "in" the hash
+if not "in" hash count--
+
+return count
+
+*/
