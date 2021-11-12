@@ -22,7 +22,7 @@ var merge = function (nums1, m, nums2, n) {
   return nums1;
 };
 
-
+//O(n) time and O(m + n) space
 var merge = function (nums1, m, nums2, n) {
   let write = 0;
   let read1 = 0;
