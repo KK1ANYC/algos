@@ -1,3 +1,4 @@
+//O(n^2) time and O(n) space
 var countConsistentStrings = function (allowed, words) {
   let allowedHash = {};
   for (let char of allowed) {
@@ -17,6 +18,7 @@ var countConsistentStrings = function (allowed, words) {
   }
   return count;
 };
+
 
 /*
 allowed char are alphabet - lowercase letters
