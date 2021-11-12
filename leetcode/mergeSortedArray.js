@@ -53,6 +53,30 @@ var merge = function (nums1, m, nums2, n) {
   return nums1;
 };
 
+var merge = function (nums1, m, nums2, n) {
+  let write = 0;
+  let read1 = 0;
+  let read2 = 0;
+  let nums1Copy = [];
+  for (let i = 0; i < m; i++) {
+    nums1Copy.push(nums1[i]);
+  }
+
+  while (write < m + n) {
+    if ((read1 < m && nums1Copy[read1] < nums2[read2]) || read2 >= n) {
+      nums1[write] = nums1Copy[read1];
+      read1++;
+    } else {
+      nums1[write] = nums2[read2];
+      read2++;
+    }
+
+    write++;
+  }
+  return nums1;
+};
+
+
 
 //doesn't work but have to fix
 var merge = function (nums1, m, nums2, n) {
