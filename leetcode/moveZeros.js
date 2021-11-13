@@ -1,3 +1,4 @@
+//O(n) time
 var moveZeroes = function (nums) {
   let countZero = 0;
   let nonZeroes = 0;
@@ -17,3 +18,15 @@ var moveZeroes = function (nums) {
 
   return nums;
 };
+
+/*
+set variable countZero and nonZeroes
+loop through array (checking for how many zeros and replacing the nums[nonZeroes] with the nonZero number)
+if the el is not zero,
+then nums[nonZeroes] = nums[i]
+increment nonZeroes
+else increment countZero
+
+loop backwards by adding in the zeros
+
+*/
