@@ -29,3 +29,9 @@ var twoSum = function (nums, target) {
 };
 
 console.log(twoSum([3, 2, 4], 6));
+
+/*
+O(n) time, linear
+return the (index + 1) of the two numbers that add up to the target
+*/
+
