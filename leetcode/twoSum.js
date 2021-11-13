@@ -49,3 +49,18 @@ var twoSum = function (numbers, target) {
     }
   }
 };
+
+/*
+increasing order
+at least 2 numbers
+can include negative numbers
+exactly one solution
+
+create two pointers left and right
+create a while loop, condition left < right
+set variable total to numbers[left] + numbers[right]
+if total === target, return [left + 1, right + 1]
+else if total < target, left++
+else if total > target, right--
+
+*/
