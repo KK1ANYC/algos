@@ -18,3 +18,19 @@ var missingNumber = function (nums) {
 };
 
 
+
+/*
+return the only number missing from range
+n = nums.length
+ranges from 0 to n, no negatives
+
+let totalNums = nums.length
+
+create a hash
+loop through nums and input nums[i] in hash
+
+while totalNums >= 0
+check if hash[totalNums] is true
+else return totalNums
+
+*/
