@@ -1,3 +1,4 @@
+//O(n) time and space
 var missingNumber = function (nums) {
   let hash = {};
   for (let num of nums) {
@@ -15,3 +16,5 @@ var missingNumber = function (nums) {
     }
   }
 };
+
+
