@@ -19,3 +19,21 @@ var largestUniqueNumber = function (nums) {
 };
 
 
+
+/*
+return largest num that occurs once
+if none return -1
+
+length max is 2000
+only positive numbers up to 1000
+
+loop through the array
+and put all nums into a hash
+
+create a maxNum variable equal to -1
+loop through the hash
+if hash[key] value is 1 and +key is greater than maxNum
+maxNum = +key
+
+return maxNum
+*/
