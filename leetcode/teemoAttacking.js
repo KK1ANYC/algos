@@ -1,3 +1,5 @@
+//O(n) time
+
 var findPoisonedDuration = function (timeSeries, duration) {
   let timeLapse = duration;
   let past = timeSeries[0];
