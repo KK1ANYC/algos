@@ -1,3 +1,5 @@
+
+//O(n)
 function romanToInt(s) {
   let roman = {
     M: 1000,
@@ -29,6 +31,7 @@ function romanToInt(s) {
   }
   return sum;
 }
+
 
 console.log(romanToInt("III")); //3
 console.log(romanToInt("IV")); //4
