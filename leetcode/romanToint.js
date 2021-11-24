@@ -13,10 +13,7 @@ var romanToInt = function (s) {
   let sum = 0;
   let count = 0;
   while (count < s.length) {
-    if (s[count] + s[count + 1] in roman) {
-      sum += roman[s[count] + s[count + 1]];
-      count += 2;
-    } else if (roman[s[count]] < roman[s[count + 1]]) {
+    if (roman[s[count]] < roman[s[count + 1]]) {
       sum += roman[s[count + 1]] - roman[s[count]];
       count += 2;
     } else {
