@@ -12,3 +12,7 @@ var lengthOfLastWord = function (s) {
   return word.length;
 };
 
+
+console.log("Hello World");
+console.log("   fly me   to   the moon  ");
+console.log("luffy is still joyboy");
