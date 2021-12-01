@@ -52,3 +52,12 @@ var findWords = function (words) {
   return result;
 };
 
+/*
+I can hard code the hash
+Outer loop through words Array
+Inner loop through word element
+have three counters start at 0 and increment if in hash
+end of loop check if counters = length of word
+if so push into result
+
+*/
