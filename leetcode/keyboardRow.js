@@ -1,3 +1,5 @@
+// O(n^2) time complexity and O(n) space complexity
+
 var findWords = function (words) {
   let result = [];
   let firstHash = {
