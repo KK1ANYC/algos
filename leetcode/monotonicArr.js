@@ -17,3 +17,13 @@ var isMonotonic = function (nums) {
     return false;
   }
 };
+
+/*
+set a variable to count for increment and decrement
+set a prev number at nums[0]
+for loop over nums
+check if i is >= or <= prev num
+increment the ones that are true
+check if increment or decrement is = to the length of nums arr
+
+*/
