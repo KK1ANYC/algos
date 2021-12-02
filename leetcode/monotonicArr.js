@@ -1,3 +1,5 @@
+//O(n) time complexity and O(1) space complexity
+
 var isMonotonic = function (nums) {
   let increment = 1;
   let decrement = 1;
