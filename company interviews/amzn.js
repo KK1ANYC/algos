@@ -47,3 +47,50 @@ function findPasswordStrength(password) {
 console.log(vowelConsonantsSequence("hackerrank")); //3
 console.log(vowelConsonantsSequence("thisisbeautiful")); //6
 console.log(vowelConsonantsSequence("iiiiiieeaaaaaa")); //0
+
+
+
+function applicationPairs(deviceCapacity, foregroundAppList, backgroundAppList) {
+  foregroundAppList.sort((a,b) => a[1]-b[1])
+  backgroundAppList.sort((a,b) => a[1]-b[1])
+
+  let memUsed = -Infinity
+  let result = []
+  let firstPtr = 0
+  let secondPtr = backgroundAppList.length - 1
+
+  while (firstPtr < foregroundAppList.length && secondPtr >= 0) {
+    let totalMem = foregroundAppList[firstPtr][1] + backgroundAppList[secondPtr][1]
+    if (totalMem > deviceCapacity) {
+
+      secondPtr -= 1
+    } else {
+      if (memUsed <= totalMem) { //max <= total memory
+        if (memUsed < totalMem) { //finding the current max value
+          result = []
+          memUsed = totalMem
+        }
+        result.push([foregroundAppList[firstPtr][0], backgroundAppList[secondPtr][0]])
+        let bApp = secondPtr
+
+        while (bApp > 0 && backgroundAppList[bApp][1] == backgroundAppList[bApp-1][1]){
+
+          result.push([foregroundAppList[firstPtr][0], backgroundAppList[bApp-1][0]])
+          bApp -= 1
+        }
+      }
+
+      firstPtr += 1
+    }
+  }
+  if  (!result.length) {
+    return [[]]
+  }
+  return result
+}
+
+console.log("applicationPairs",applicationPairs(7, [[1,2], [2,4],[3,6]], [[1,2]]) ) //[2,1]
+
+console.log("applicationPairs",applicationPairs(10, [[1,3], [2,5],[3,7], [4,10]], [[1,2], [2,3], [3,4],[4,5]]) ) //[[2,4],[3,2]]
+10 , 10
+console.log("applicationPairs",applicationPairs(16, [[2,7], [3,14]], [[2,10], [3,14]]) ) //[()]
