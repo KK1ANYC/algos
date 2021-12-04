@@ -28,7 +28,7 @@ function findPasswordStrength(password) {
   let result = 0;
   let hasVowel = false;
   let hasconsonant = false;
-  for (let i = 0; i < password.length; i++) {
+  for (let i = 0; i <= password.length; i++) {
     if (hasVowel && hasconsonant) {
       console.log("hit both", password[i]);
       hasVowel = false;
@@ -41,7 +41,7 @@ function findPasswordStrength(password) {
       hasconsonant = true;
     }
   }
-  return hasVowel && hasconsonant ? result + 1 : result;
+  return result;
 }
 
 console.log(vowelConsonantsSequence("hackerrank")); //3
