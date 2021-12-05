@@ -26,7 +26,9 @@ checks average and if sum is > max and replaces it
 return max
 */
 
+
 //O(n) time complexity
+// Sliding window is minus first index plus next index
 var findMaxAverage = function (nums, k) {
   let sum = 0;
   for (let i = 0; i < k; i++) {
