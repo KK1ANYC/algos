@@ -1,4 +1,5 @@
-var findMaxAverage = function(nums, k) {
+//O(n^2) time complexity
+var findMaxAverage = function (nums, k) {
     let max = -Infinity
     for (let i = 0; i <= nums.length; i++) {
         let sum = 0
