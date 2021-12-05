@@ -13,6 +13,18 @@ var findMaxAverage = function(nums, k) {
     return max
 };
 
+/*
+let max = -Infinity
+have a nest for loop
+outer loop checks the nums.length
+let sum = sum of all k
+inner loop checks k length
+adds all num to sum
+outer loop
+checks average and if sum is > max and replaces it
+return max
+*/
+
 var findMaxAverage = function (nums, k) {
   let sum = 0;
   for (let i = 0; i < k; i++) {
