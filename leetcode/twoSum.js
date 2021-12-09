@@ -67,3 +67,16 @@ else if total < target, left++
 else if total > target, right--
 
 */
+
+
+var twoSum = function (nums, target) {
+  let hash = {};
+  for (let i = 0; i <= nums.length; i++) {
+    let diff = target - nums[i];
+    if (diff in hash) {
+      return [hash[diff], i];
+    } else {
+      hash[nums[i]] = i;
+    }
+  }
+};

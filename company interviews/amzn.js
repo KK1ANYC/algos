@@ -1,3 +1,4 @@
+
 //Altus
 var vowelConsonantsSequence = function (password) {
   const vowels = new Set("aeiou");
@@ -21,6 +22,7 @@ var vowelConsonantsSequence = function (password) {
     ? amountOfSequence + 1
     : amountOfSequence;
 };
+
 
 //Kevin
 function findPasswordStrength(password) {
@@ -49,6 +51,8 @@ console.log(vowelConsonantsSequence("thisisbeautiful")); //6
 console.log(vowelConsonantsSequence("iiiiiieeaaaaaa")); //0
 
 
+
+//https://gist.github.com/siddydutta/0af4498845adf5f875b7575eb2e0ac26
 
 function applicationPairs(deviceCapacity, foregroundAppList, backgroundAppList) {
   foregroundAppList.sort((a,b) => a[1]-b[1])
@@ -88,6 +92,7 @@ function applicationPairs(deviceCapacity, foregroundAppList, backgroundAppList) 
   }
   return result
 }
+
 
 console.log("applicationPairs",applicationPairs(7, [[1,2], [2,4],[3,6]], [[1,2]]) ) //[2,1]
 
