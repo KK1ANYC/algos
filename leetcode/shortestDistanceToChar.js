@@ -28,3 +28,17 @@ var shortestToChar = function (s, c) {
 };
 
 
+//Altus
+var shortestToChar = function (str, c) {
+  let charIdx = [];
+  let variable = -Infinity;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === c) variable = i;
+    charIdx.push(Math.abs(variable - i));
+  }
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (str[i] === c) variable = i;
+    charIdx[i] = Math.min(Math.abs(variable - i), charIdx[i]);
+  }
+  return charIdx;
+};
