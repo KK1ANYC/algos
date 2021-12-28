@@ -121,7 +121,17 @@ const quickSort = (arr, left = 0, right = arr.length - 1) => {
 
 /*
 Explanation:
-
+I created a result variable and default it to an empty array.
+I created a map variable and default it to an empty map.
+Then I loop through the string and set the map to the frequency of the character.
+Then I create a function that takes in the character, digit in word, and digit.
+The function will check if the map has the character and if it does then it will decrement the map by the number of the character inside the for loop
+If the map with the letter from the numStr is 0 then it will delete the letter from the map.
+Then it will push the digit in the result array and decrement the number of the unique character by 1.
+I then invoke the pushCharNum function and pass in the unique character, digit in word, and digit.
+It is important that unique characters for the number are invoked first.
+then I invoke the quickSort function and pass in the result array and turn it into a string.
+I utilize quicksort because it is one of the most efficient sorting algorithms.
 */
 
 
