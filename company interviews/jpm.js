@@ -39,7 +39,170 @@ and if it does then set the result to 1.
 // output: "143"
 //quicksort
 
-//Solution 1 - works
+
+//https://leetcode.com/problems/reconstruct-original-digits-from-english/
+
+//Solution 1 - CHOSEN ONE
+var originalDigits = function (s) {
+  let result = new Array();
+  let map = new Map();
+
+  for (let char of s) {
+    if (!map.has(char)) map.set(char, 0);
+    map.set(char, map.get(char) + 1);
+  }
+  //loop over the parameter and set the map to the frequency of the char
+
+  const pushCharNum = (char, numStr, digit) => {
+    if (map.has(char)) {
+      //check if the map has the char
+      let getResult = map.get(char);
+      //set a variable to equal the result of the number of char
+      for (let letter of numStr) {
+        //run a for loop on the numStr
+        map.set(letter, map.get(letter) - getResult);
+        //setting the letter with the new value minus the old
+        if (map.get(letter) == 0) map.delete(letter);
+        //if the value of the letter is 0 just delete it
+      }
+      while (getResult > 0) {
+        result.push(digit);
+        getResult--;
+        //while the value of the unique char is more than 0, push the digit in and decrement one
+      }
+    }
+  };
+
+  //unique nums
+  pushCharNum("z", "zero", 0);
+  pushCharNum("w", "two", 2);
+  pushCharNum("u", "four", 4);
+  pushCharNum("x", "six", 6);
+  pushCharNum("g", "eight", 8);
+  //non-unique nums
+  pushCharNum("o", "one", 1);
+  pushCharNum("h", "three", 3);
+  pushCharNum("f", "five", 5);
+  pushCharNum("v", "seven", 7);
+  pushCharNum("i", "nine", 9);
+
+  result = quickSort(result).join("");
+  return result;
+};
+
+const pivot = (arr, start = 0, end = arr.length - 1) => {
+  const swap = (arr, i, j) => {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  };
+  let pivot = arr[start];
+  let swapIndex = start;
+  for (let i = start + 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      swapIndex++;
+      swap(arr, swapIndex, i);
+    }
+  }
+  swap(arr, start, swapIndex);
+  return swapIndex;
+};
+
+const quickSort = (arr, left = 0, right = arr.length - 1) => {
+  if (left < right) {
+    let pivotIdx = pivot(arr, left, right);
+    // left
+    quickSort(arr, left, pivotIdx - 1);
+    // right
+    quickSort(arr, pivotIdx + 1, right);
+  }
+  return arr;
+};
+
+/*
+Explanation:
+
+*/
+
+
+//Solution 2 - works
+var originalDigits = function (s) {
+  var freq = {},
+    i,
+    l,
+    numbersFoundCounted = [], // we keep track of the numbers found here, and later transform it in the output
+    out = [];
+
+  var pass1 = {
+    z: ["zero", 0],
+    w: ["two", 2],
+    u: ["four", 4],
+    x: ["six", 6],
+    g: ["eight", 8],
+  };
+
+  var pass2 = {
+    o: ["one", 1],
+    t: ["three", 3],
+    f: ["five", 5],
+    s: ["seven", 7],
+  };
+
+  var pass3 = {
+    i: ["nine", 9],
+  };
+
+  // make a frequency count of each letter in s
+  for (i = 0, l = s.length; i < l; i++) {
+    if (!freq[s[i]]) {
+      freq[s[i]] = 1;
+    } else {
+      freq[s[i]]++;
+    }
+  }
+
+  // console.log('freq', freq);
+
+  var reduce = function (pass) {
+    // for each unique letter ...
+    for (let entry in pass) {
+      // ... find out how many there are ...
+      let count = freq[entry];
+
+      if (count) {
+        // ... and reduce the freq map for all the letters in the full number with that count
+        for (let letter of pass[entry][0]) {
+          freq[letter] -= count;
+        }
+
+        // and we register how many there were for the final answer later
+        numbersFoundCounted[pass[entry][1]] = count;
+      }
+    }
+  };
+
+  // Do the passes in order, so we always pick out numbers uniquely
+  reduce(pass1);
+  reduce(pass2);
+  reduce(pass3);
+
+  // console.log('freq', freq); // this should be all zeroes now
+  // console.log('numbersFoundCounted', numbersFoundCounted) // hold something like [1,1,0,3]
+
+  // Generate the output string the answer understands
+  for (i = 0, l = numbersFoundCounted.length; i < l; i++) {
+    let j, m;
+
+    for (j = 0, m = numbersFoundCounted[i]; j < m; j++) {
+      out.push(String(i));
+    }
+  }
+
+  return out.join("");
+};
+
+
+//Solution 3 - doesn't work
 const jumbledLetters = (jumble) => {
   const hash = {};
   for (let letter of jumble) {
@@ -156,163 +319,3 @@ function pivot(arr, start = 0, end = arr.length - 1) {
 console.log(jumbledLetters("ofthnereourfe")); // "134"
 console.log(jumbledLetters("fnineenoour")); //"149"
 console.log(jumbledLetters("nfnineennoourie")); //"1499"
-
-//https://leetcode.com/problems/reconstruct-original-digits-from-english/
-
-//Solution 2 - CHOSEN ONE
-var originalDigits = function (s) {
-  let result = new Array();
-  let map = new Map();
-
-  for (let char of s) {
-    if (!map.has(char)) map.set(char, 0);
-    map.set(char, map.get(char) + 1);
-  }
-  //loop over the parameter and set the map to the frequency of the char
-
-  const pushCharNum = (char, numStr, digit) => {
-    if (map.has(char)) {
-      //check if the map has the char
-      let getResult = map.get(char);
-      //set a variable to equal the result of the number of char
-      for (let letter of numStr) {
-        //run a for loop on the numStr
-        map.set(letter, map.get(letter) - getResult);
-        //setting the letter with the new value minus the old
-        if (map.get(letter) == 0) map.delete(letter);
-        //if the value of the letter is 0 just delete it
-      }
-      while (getResult > 0) {
-        result.push(digit);
-        getResult--;
-        //while the value of the unique char is more than 0, push the digit in and decrement one
-      }
-    }
-  };
-
-  //unique nums
-  pushCharNum("z", "zero", 0);
-  pushCharNum("w", "two", 2);
-  pushCharNum("u", "four", 4);
-  pushCharNum("x", "six", 6);
-  pushCharNum("g", "eight", 8);
-  //non-unique nums
-  pushCharNum("o", "one", 1);
-  pushCharNum("h", "three", 3);
-  pushCharNum("f", "five", 5);
-  pushCharNum("v", "seven", 7);
-  pushCharNum("i", "nine", 9);
-
-  result = quickSort(result).join("");
-  return result;
-};
-
-const pivot = (arr, start = 0, end = arr.length - 1) => {
-  const swap = (arr, i, j) => {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-  };
-  let pivot = arr[start];
-  let swapIndex = start;
-  for (let i = start + 1; i < arr.length; i++) {
-    if (arr[i] < pivot) {
-      swapIndex++;
-      swap(arr, swapIndex, i);
-    }
-  }
-  swap(arr, start, swapIndex);
-  return swapIndex;
-};
-
-const quickSort = (arr, left = 0, right = arr.length - 1) => {
-  if (left < right) {
-    let pivotIdx = pivot(arr, left, right);
-    // left
-    quickSort(arr, left, pivotIdx - 1);
-    // right
-    quickSort(arr, pivotIdx + 1, right);
-  }
-  return arr;
-};
-
-/*
-Explanation:
-
-*/
-
-//Solution 3
-var originalDigits = function (s) {
-  var freq = {},
-    i,
-    l,
-    numbersFoundCounted = [], // we keep track of the numbers found here, and later transform it in the output
-    out = [];
-
-  var pass1 = {
-    z: ["zero", 0],
-    w: ["two", 2],
-    u: ["four", 4],
-    x: ["six", 6],
-    g: ["eight", 8],
-  };
-
-  var pass2 = {
-    o: ["one", 1],
-    t: ["three", 3],
-    f: ["five", 5],
-    s: ["seven", 7],
-  };
-
-  var pass3 = {
-    i: ["nine", 9],
-  };
-
-  // make a frequency count of each letter in s
-  for (i = 0, l = s.length; i < l; i++) {
-    if (!freq[s[i]]) {
-      freq[s[i]] = 1;
-    } else {
-      freq[s[i]]++;
-    }
-  }
-
-  // console.log('freq', freq);
-
-  var reduce = function (pass) {
-    // for each unique letter ...
-    for (let entry in pass) {
-      // ... find out how many there are ...
-      let count = freq[entry];
-
-      if (count) {
-        // ... and reduce the freq map for all the letters in the full number with that count
-        for (let letter of pass[entry][0]) {
-          freq[letter] -= count;
-        }
-
-        // and we register how many there were for the final answer later
-        numbersFoundCounted[pass[entry][1]] = count;
-      }
-    }
-  };
-
-  // Do the passes in order, so we always pick out numbers uniquely
-  reduce(pass1);
-  reduce(pass2);
-  reduce(pass3);
-
-  // console.log('freq', freq); // this should be all zeroes now
-  // console.log('numbersFoundCounted', numbersFoundCounted) // hold something like [1,1,0,3]
-
-  // Generate the output string the answer understands
-  for (i = 0, l = numbersFoundCounted.length; i < l; i++) {
-    let j, m;
-
-    for (j = 0, m = numbersFoundCounted[i]; j < m; j++) {
-      out.push(String(i));
-    }
-  }
-
-  return out.join("");
-};
