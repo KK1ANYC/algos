@@ -1,27 +1,38 @@
 // first question was return 1 if the index is the same as it's frequency and 0 if none of numbers are
 
 function indexFreq(numStr) {
-const hash = {}
-let result = "0"
+  const hash = {};
+  let result = "0";
   for (let num of numStr) {
-    if (!hash[num]) hash[num] = 1
-    else hash[num]++
+    if (!hash[num]) hash[num] = 1;
+    else hash[num]++;
   }
-  console.log("hash", hash)
+
   for (let k = 0; k < numStr.length; k++) {
     if (hash[k] == numStr[k]) {
-      result = "1"
+      result = "1";
       break;
     }
   }
-  console.log(result)
+  console.log(result);
 }
 
-console.log(indexFreq("2020"))
-console.log(indexFreq("0123"))
+console.log("1", indexFreq("2020"));
+console.log("1", indexFreq("0123"));
+console.log("0", indexFreq("4325"));
 
 //numStr = lines[i]
 //system.stdout.lines("1")
+
+/*
+Explanation:
+I create a hash table to keep track of the letters in the string.
+I create a result variable and default it to a string of 0.
+Then I loop through the string and check if the hash table has the letters and increment it if it does otherwise set it to 1.
+Then I loop throught the string again to check if the hash table has the same value as the index of the string.
+and if it does then set the result to 1.
+*/
+
 
 // second question is take a jumbled letters and decipher in the numbers in the jumbled letters
 // input: "ofthneeourfe"
@@ -148,7 +159,7 @@ console.log(jumbledLetters("nfnineennoourie")); //"1499"
 
 //https://leetcode.com/problems/reconstruct-original-digits-from-english/
 
-//Solution 2
+//Solution 2 - CHOSEN ONE
 var originalDigits = function (s) {
   let result = new Array();
   let map = new Map();
@@ -196,6 +207,23 @@ var originalDigits = function (s) {
   return result;
 };
 
+const pivot = (arr, start = 0, end = arr.length - 1) => {
+  const swap = (arr, i, j) => {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  };
+  let pivot = arr[start];
+  let swapIndex = start;
+  for (let i = start + 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      swapIndex++;
+      swap(arr, swapIndex, i);
+    }
+  }
+  swap(arr, start, swapIndex);
+  return swapIndex;
+};
 
 const quickSort = (arr, left = 0, right = arr.length - 1) => {
   if (left < right) {
@@ -208,24 +236,10 @@ const quickSort = (arr, left = 0, right = arr.length - 1) => {
   return arr;
 };
 
-function pivot(arr, start = 0, end = arr.length - 1) {
-  function swap(arr, i, j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-  }
-  let pivot = arr[start];
-  let swapIndex = start;
-  for (let i = start + 1; i < arr.length; i++) {
-    if (arr[i] < pivot) {
-      swapIndex++;
-      swap(arr, swapIndex, i);
-    }
-  }
-  swap(arr, start, swapIndex);
-  return swapIndex;
-}
+/*
+Explanation:
 
+*/
 
 //Solution 3
 var originalDigits = function (s) {
