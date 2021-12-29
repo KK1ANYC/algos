@@ -90,6 +90,18 @@ var originalDigits = function (s) {
   return result;
 };
 
+
+const quickSort = (arr, left = 0, right = arr.length - 1) => {
+  if (left < right) {
+    let pivotIdx = pivot(arr, left, right);
+    // left
+    quickSort(arr, left, pivotIdx - 1);
+    // right
+    quickSort(arr, pivotIdx + 1, right);
+  }
+  return arr;
+};
+
 const pivot = (arr, start = 0, end = arr.length - 1) => {
   const swap = (arr, i, j) => {
     let temp = arr[i];
@@ -108,16 +120,6 @@ const pivot = (arr, start = 0, end = arr.length - 1) => {
   return swapIndex;
 };
 
-const quickSort = (arr, left = 0, right = arr.length - 1) => {
-  if (left < right) {
-    let pivotIdx = pivot(arr, left, right);
-    // left
-    quickSort(arr, left, pivotIdx - 1);
-    // right
-    quickSort(arr, pivotIdx + 1, right);
-  }
-  return arr;
-};
 
 /*
 Explanation:
