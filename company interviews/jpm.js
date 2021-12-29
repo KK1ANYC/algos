@@ -56,18 +56,18 @@ var originalDigits = function (s) {
   const pushCharNum = (char, numStr, digit) => {
     if (map.has(char)) {
       //check if the map has the char
-      let getResult = map.get(char);
+      let numOfChar = map.get(char);
       //set a variable to equal the result of the number of char
       for (let letter of numStr) {
         //run a for loop on the numStr
-        map.set(letter, map.get(letter) - getResult);
+        map.set(letter, map.get(letter) - numOfChar);
         //setting the letter with the new value minus the old
         if (map.get(letter) == 0) map.delete(letter);
         //if the value of the letter is 0 just delete it
       }
-      while (getResult > 0) {
+      while (numOfChar > 0) {
         result.push(digit);
-        getResult--;
+        numOfChar--;
         //while the value of the unique char is more than 0, push the digit in and decrement one
       }
     }
