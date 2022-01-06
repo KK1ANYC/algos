@@ -1,3 +1,4 @@
+//O(n)
 var maximumDifference = function (nums) {
   var min = Infinity;
   var diff = -1;
