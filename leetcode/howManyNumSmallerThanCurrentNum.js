@@ -1,5 +1,5 @@
 
-
+//O(n^2)
 var smallerNumbersThanCurrent = function (nums) {
   let arr = new Array();
   for (let i = 0; i < nums.length; i++) {
