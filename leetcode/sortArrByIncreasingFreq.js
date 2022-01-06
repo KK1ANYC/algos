@@ -1,3 +1,4 @@
+//O(n logn)
 var frequencySort = function (nums) {
   const map = new Map();
   for (let n of nums) {
