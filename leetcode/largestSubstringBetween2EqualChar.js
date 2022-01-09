@@ -1,4 +1,4 @@
-
+// O(n)
 var maxLengthBetweenEqualCharacters = function (s) {
   let hash = {};
   let maxResult = -1;
