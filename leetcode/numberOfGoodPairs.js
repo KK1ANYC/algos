@@ -1,3 +1,5 @@
+
+// O(n^2) time complexity
 var numIdenticalPairs = function (nums) {
   let count = 0;
 
