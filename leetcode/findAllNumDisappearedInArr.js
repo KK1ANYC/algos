@@ -1,3 +1,4 @@
+//O(n)
 var findDisappearedNumbers = function (nums) {
   let result = new Array();
   let hash = {};
