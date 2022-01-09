@@ -10,8 +10,6 @@ var maxLengthBetweenEqualCharacters = function (s) {
     }
   }
 
-  console.log("hash", hash);
-
   for (let i = s.length - 1; i >= 0; i--) {
     if (hash[s[i]] >= 0) {
       let diff = i - hash[s[i]] - 1;
