@@ -1,3 +1,5 @@
+
+//O(n) time complexity
 var intersection = function (nums1, nums2) {
   let hash = {};
   let duplicateHash = {};
