@@ -16,3 +16,25 @@ var isHappy = function (n) {
     numStr = sum.toString();
   }
 };
+
+var isHappy = function (n) {
+  let hash = {};
+  while (true) {
+    let strNum = n.toString();
+    let sum = 0;
+    for (let i = 0; i < strNum.length; i++) {
+      let num = parseInt(strNum[i]);
+      let square = num * num;
+      sum += square;
+    }
+    if (hash[sum]) {
+      return false;
+    } else {
+      hash[sum] = strNum;
+    }
+    if (sum == 1) {
+      return true;
+    }
+    n = sum;
+  }
+};
