@@ -82,4 +82,34 @@ var twoSum = function (nums, target) {
     }
 };
 
+https://leetcode.com/problems/min-stack/
+
+https://leetcode.com/problems/valid-parentheses/
+//O(n) time complexity
+var isValid = function(s) {
+    let hash = {
+        ")": "(",
+        "}": "{",
+        "]": "[",
+    }
+
+    let arr = new Array()
+
+    for (let i = 0; i < s.length; i++) {
+        let lastEl = arr[arr.length - 1]
+        if (lastEl === hash[s[i]] && lastEl !== undefined && hash[s[i]] !== undefined){
+            arr.pop()
+        } else {
+            arr.push(s[i])
+        }
+    }
+    if (arr.length == 0) {
+        return true
+    } else {
+        return false
+    }
+};
+
+https://leetcode.com/problems/merge-two-sorted-lists/
+
 
