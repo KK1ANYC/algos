@@ -65,3 +65,21 @@ function isPalindrome(x) {
 
     return true
 }
+
+https://leetcode.com/problems/intersection-of-two-linked-lists/
+
+https://leetcode.com/problems/two-sum/
+//O(n) time complexity
+var twoSum = function (nums, target) {
+    let hash = {}
+    for (let i = 0; i < nums.length; i++) {
+        let diff = target - nums[i]
+        if (hash[diff] >= 0) {
+            return [hash[diff], i]
+        } else if (!hash[nums[i]]) {
+            hash[nums[i]] = i
+        }
+    }
+};
+
+
