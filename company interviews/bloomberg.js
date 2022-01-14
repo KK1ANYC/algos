@@ -47,3 +47,21 @@ var isAnagram = function(s, t) {
     return result
 };
 
+https://leetcode.com/problems/palindrome-number/
+// O(n) time complexity
+function isPalindrome(x) {
+    if (x < 0) return false
+
+    x = x.toString()
+
+    let left = 0
+    let right = x.length - 1
+
+    while (left <= right) {
+        if (x[left] !== x[right]) return false
+        left++
+        right--
+    }
+
+    return true
+}
