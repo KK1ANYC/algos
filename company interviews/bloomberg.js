@@ -97,6 +97,16 @@ function isPalindrome(x) {
 }
 
 https://leetcode.com/problems/intersection-of-two-linked-lists/
+// O(n) time complexity
+var getIntersectionNode = function (headA, headB) {
+    let hA = headA;
+    let hB = headB;
+    while (hA !== hB) {
+        hA = hA === null ? headB : hA.next;
+        hB = hB === null ? headA : hB.next;
+    };
+    return hA;
+};
 
 https://leetcode.com/problems/two-sum/
 //O(n) time complexity
