@@ -1,6 +1,18 @@
 //Easy
 
 https://leetcode.com/problems/reverse-linked-list/
+//O(n) time complexity
+var reverseList = function (head) {
+    let pre = null
+    while (head) {
+        const next = head.next
+        head.next = pre
+        pre = head
+        head = next
+    }
+    return pre
+};
+
 
 https://leetcode.com/problems/binary-tree-paths/
 
@@ -111,5 +123,4 @@ var isValid = function(s) {
 };
 
 https://leetcode.com/problems/merge-two-sorted-lists/
-
 
