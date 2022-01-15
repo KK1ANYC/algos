@@ -15,6 +15,24 @@ var reverseList = function (head) {
 
 
 https://leetcode.com/problems/binary-tree-paths/
+var binaryTreePaths = function(root) {
+    let result = new Array()
+    dfs(root, "")
+
+    function dfs (root, currentPath) {
+        if (root === null) {
+            return
+        }
+        if (root.left == null && root.right == null) {
+            currentPath += root.val
+            result.push(currentPath)
+            return
+        }
+        dfs(root.left, currentPath + root.val + `->`)
+        dfs(root.right, currentPath + root.val + `->`)
+    }
+    return result
+};
 
 https://leetcode.com/problems/first-unique-character-in-a-string/
 // O(n) time complexity
