@@ -123,6 +123,50 @@ var twoSum = function (nums, target) {
 };
 
 https://leetcode.com/problems/min-stack/
+var MinStack = function() {
+    this.stack = []
+};
+
+/**
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+    this.stack.push(val)
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    if (this.stack.length > 0) {
+        this.stack.pop()
+    }
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    if (this.stack.length > 0) {
+        return this.stack[this.stack.length - 1]
+    }
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    let min = Infinity
+    if (this.stack.length > 0) {
+        for (let i = 0; i < this.stack.length; i++) {
+            if (this.stack[i] < min) {
+                min = this.stack[i]
+            }
+        }
+    }
+    return min
+};
 
 https://leetcode.com/problems/valid-parentheses/
 //O(n) time complexity
@@ -151,4 +195,30 @@ var isValid = function(s) {
 };
 
 https://leetcode.com/problems/merge-two-sorted-lists/
+//O(2 n) time complexity
+var mergeTwoLists = function (l1, l2) {
+  let list = new ListNode();
+  let head = list;
 
+  while (l1 !== null && l2 !== null) {
+    // Select the smallest value from either linked list,
+    // then increment that list forward.
+    if (l1.val < l2.val) {
+      list.next = new ListNode(l1.val);
+      l1 = l1.next;
+    } else {
+      list.next = new ListNode(l2.val);
+      l2 = l2.next;
+    }
+
+    list = list.next;
+  }
+
+  // It's possible that one linked list is shorter than the other so we just
+  // add on the remainder of the last linked list. It's already sorted :)
+  if (l1 !== null) list.next = l1;
+  if (l2 !== null) list.next = l2;
+
+  // return .next because this first element in the linkedlist is empty
+  return head.next;
+};
