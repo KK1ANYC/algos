@@ -281,3 +281,16 @@ var addTwoNumbers = function (l1, l2) {
   }
   return l3.val === 0 ? l3.next : l3;
 };
+
+//https://leetcode.com/problems/shuffle-an-array/
+
+//https://leetcode.com/problems/range-sum-query-2d-immutable/
+
+//https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+//O(log n) time complexity
+var findMin = function (nums) {
+  nums = nums.sort((a, b) => a - b);
+  return nums[0];
+};
+
+
