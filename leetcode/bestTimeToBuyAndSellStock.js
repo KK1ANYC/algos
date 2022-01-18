@@ -1,3 +1,4 @@
+//O(n) time complexity
 var maxProfit = function (prices) {
   let profit = 0;
   let bp = 0;
