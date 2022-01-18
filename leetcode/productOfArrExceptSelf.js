@@ -1,3 +1,4 @@
+//O(n) time complexity
 var productExceptSelf = function (nums) {
   const result = [];
   let productSoFar = 1;
