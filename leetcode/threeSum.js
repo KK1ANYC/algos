@@ -1,3 +1,5 @@
+
+//O(n^2) time complexity
 var threeSum = function (nums) {
   nums = nums.sort((a, b) => a - b);
 
