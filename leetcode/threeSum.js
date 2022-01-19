@@ -28,3 +28,24 @@ var threeSum = function (nums) {
   }
   return result;
 };
+
+//Doesn't work
+var threeSum = function (nums) {
+  nums = nums.sort((a, b) => a - b);
+  let left = 0;
+  let right = nums.length - 1;
+  let result = new Array();
+
+  for (let i = 1; i < right; i++) {
+    let sum = nums[i] + nums[left] + nums[right];
+    if (sum == 0) {
+      result.push([nums[i], nums[left], nums[right]]);
+    }
+    if (sum > 0) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+  return result;
+};
