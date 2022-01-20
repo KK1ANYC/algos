@@ -1,3 +1,4 @@
+//O(n) time complexity
 var lengthOfLongestSubstring = function (s) {
   let set = new Set();
   let res = 0;
