@@ -1,3 +1,4 @@
+//O(n) time complexity
 var maxArea = function (height) {
   let max = 0;
   let left = 0;
