@@ -1,3 +1,4 @@
+//O(n) time complexity
 var isValid = function (s) {
   let hash = {
     ")": "(",
