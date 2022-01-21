@@ -1,3 +1,4 @@
+//O(n) time complexity
 var characterReplacement = function (s, k) {
   let res = 0;
   let left = 0;
@@ -23,3 +24,4 @@ var characterReplacement = function (s, k) {
   }
   return res;
 };
+
