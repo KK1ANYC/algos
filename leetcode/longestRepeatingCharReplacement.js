@@ -3,13 +3,14 @@ var characterReplacement = function (s, k) {
   let left = 0;
   let right = 0;
   let hash = {};
+  let maxVal = 0;
   while (right < s.length) {
     if (!hash[s[right]]) {
       hash[s[right]] = 1;
     } else {
       hash[s[right]]++;
     }
-    let maxVal = Math.max(...Object.values(hash));
+    maxVal = Math.max(maxVal, hash[s[right]]);
     let length = right - left + 1;
     let replace = length - maxVal;
     if (replace > k) {
