@@ -1,3 +1,4 @@
+//O(n) time complexity
 var groupAnagrams = function (strs) {
   let hash = {};
   for (let i = 0; i < strs.length; i++) {
