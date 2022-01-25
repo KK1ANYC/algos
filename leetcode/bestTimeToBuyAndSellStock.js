@@ -5,13 +5,11 @@ var maxProfit = function (prices) {
   let sp = 1;
 
   while (sp < prices.length) {
-    let diff = prices[sp] - prices[bp];
     if (prices[sp] < prices[bp]) {
       bp = sp;
     }
-    if (profit < diff) profit = diff;
+    profit = Math.max(profit, prices[sp] - prices[bp]);
     sp++;
   }
-
   return profit;
 };
