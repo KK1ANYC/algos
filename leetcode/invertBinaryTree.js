@@ -1,3 +1,4 @@
+//O(n) time and space complexity
 var invertTree = function (root) {
   if (!root) return root;
 
